@@ -1,9 +1,14 @@
-class DrinksController < InheritedResources::Base
+class DrinksController < ApiController
+  # GET /drinks
+  def index
+    @drinks = Drink.select("id, title").all
+    render json: @drinks.to_json
+  end
 
-  private
-
-    def drink_params
-      params.require(:drink).permit(:title, :description, :steps, :source)
-    end
+  # GET /drinks/:id
+  def show
+    @drink = Drink.find(params[:id])
+    render json: @drink.to_json(:include => { :ingredients => { :only => [:id, :description] }})
+  end
 end
 
