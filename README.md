@@ -1,6 +1,6 @@
 # README
 
-http://make-a-drink.herokuapp.com/
+https://make-a-drink.herokuapp.com/
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
